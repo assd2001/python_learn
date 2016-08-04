@@ -8,4 +8,4 @@ for urlclass in urlclasses:
     aclasses = urlclass.find_all('a')
     for aclass in aclasses:
         if 'cat' in aclass['href']:
-            print aclass['href']
+            print aclass['href']+'|'+aclass.string
