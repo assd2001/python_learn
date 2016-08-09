@@ -11,7 +11,7 @@ from Queue import Queue
 classlist=["gl-i-wrap j-sku-item"]
 filepath = r'C:\git\python_learn'
 SHARE_Q = Queue()
-_WORKER_THREAD_NUM = 5
+_WORKER_THREAD_NUM = 10
 
 def getallpages(caturl):
     html = get_html(caturl)
@@ -40,7 +40,7 @@ def get_product_info():
     while not SHARE_Q.empty():
         cat = SHARE_Q.get()
         cat_info = cat.split('|')
-        fout = open(os.path.join(filepath,cat_info[1].decode('utf-8'))+'.txt', 'a')
+        fout = open(os.path.join(filepath,cat_info[1].replace('/','').decode('utf-8'))+'.txt', 'a')
         caturl = 'http:'+cat_info[0]
         all_pages = getallpages(caturl)
         print 'pages:'+str(all_pages)
@@ -86,9 +86,9 @@ def main():
     for i in xrange(_WORKER_THREAD_NUM):
         thread = MyThread(get_product_info)
         thread.start()
-        threads.append(thread)
-    for thread in threads:
-        thread.join()
+    #     threads.append(thread)
+    # for thread in threads:
+    #     thread.join()
 
 if __name__ == '__main__':
     main()
