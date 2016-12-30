@@ -1,7 +1,7 @@
 #coding:utf-8
-from numpy import loadtxt,where,reshape,transpose,zeros,mat,shape,ones
+from numpy import loadtxt,where,reshape,transpose,zeros,mat,shape,ones,exp
 from pylab import scatter,show,legend,xlabel,ylabel
-from math import e,log,exp
+from math import e,log
 
 # data = loadtxt('C:\\git\\python_learn\\logreg\\data1.txt',delimiter=',')
 # # 读取txt 返回array
