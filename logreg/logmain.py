@@ -1,6 +1,8 @@
-from logr import loadDataSet,gradAscent
+from logr import loadDataSet,gradAscent,plotBestFit
 dataArr,labelArr = loadDataSet()
 # print dataArr
 # print labelArr
 m = gradAscent(dataArr,labelArr)
-print m
+# print m
+plotBestFit(m)
+
